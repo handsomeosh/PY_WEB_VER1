@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap"
+          rel="stylesheet">
+    <title>Post List</title>
+    {% load staticfiles %}
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+        #box{
+            width: 400px; height: auto;
+            border: 3px solid lightyellow;
+            display: inline-block;
+            padding:10px;
+        }
+        img{
+            width:380px;height:380px;
+            margin:auto;display:block;
+        }
+        body{
+            font-family: 'Song Myung', serif;
+            font-family: 'Lobster', cursive;
+            background-color: rgb(212, 234, 250);
+        }
+        .large_letters{
+            color: black;
+            font-size: 60px;
+        }
+        .small_letters{
+            font-size: 25px;
+            color:gray;
+        }
+        .bold{
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+<h1> <span class="large_letters">Blog</span> <span class="small_letters">made with django</span> </h1>
+<div id="box">
+    {% for post in object_list %}
+        <p class="bold">{{ post.title }}</p>
+        <img src="{{ post.image.url }}">
+        <p class="bold">{{ post.description }}</p>
+        <p class="bold">{{ post.create_date }}</p>
+        <p class="bold">{{ post.modify_date }}</p>
+    {% endfor %}
+</div>
+
+</body>
+</html>

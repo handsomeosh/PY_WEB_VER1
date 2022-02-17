@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookmark</title>
+    <link href="https://fonts.googleapis.com/css2?family
+                =Luxurious+Roman&family=Song+Myung&display=swap"
+                rel="stylesheet">
+
+    <style>
+        li {
+            width:500px;
+            margin: auto;
+            margin-bottom:30px;
+            text-align:left;
+        }
+        ul {
+            list-style:none;
+        }
+        #content {
+            text-align:center;
+            font-size: 30px;
+            font-family: 'Luxurious Roman', cursive;
+            font-family: 'Song Myung', serif;
+            width:900px;
+            height:900px;
+            margin:auto;
+        }
+        #title {
+            font-family: 'Luxurious Roman', cursive;
+            font-family: 'Song Myung', serif;
+            font-size:100px;
+            color:red;
+        }
+        .small{
+            font-size:20px;
+            color:gray;
+        }
+        a{
+            text-decoration:none;
+            color:dimgray;
+        }
+        li:hover{
+            background-color:rgba(255,20,147,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div id="content">
+
+    <h1 id="title">
+        최<span class="small">고로</span>
+        애<span class="small">정하는</span>
+        유<span class="small">튜브</span>
+    </h1>
+
+    <ul>
+        {% for bookmark in object_list %}
+        <li><a href="{% url 'detail' bookmark.id %}">{{ bookmark }}</a></li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+</body>
+</html>
